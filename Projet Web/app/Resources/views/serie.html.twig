@@ -1,0 +1,21 @@
+{% extends 'inc.html.twig' %}
+
+{% block body %}
+    <h1>{{ nom }}</h1>
+    <p>Cette série est sortie le {{ date }} </p>
+    <h4>Synopsi :</h4>
+    <p>{{ resume }} </p>
+    <h4>Commentaires :</h4>
+    {% for commentaire in commentaires %}
+        <p>{{ commentaire.contenu }}</p>
+        <br>
+    {% endfor %}
+    {% if user == true %}
+    <h4>Ajouter un commentaire</h4>
+    <form action="{{ path('add_comment_show_serie', {'name' : nom, 'id': id}) }}" method="POST">
+        <textarea name="commentaire" rows="10" cols="100"></textarea>
+        <br><br>
+        <input type="submit" value="Ajouter">
+    </form>
+    {% endif %}
+{% endblock %}

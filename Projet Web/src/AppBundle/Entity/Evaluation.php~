@@ -1,0 +1,54 @@
+<?php
+
+namespace AppBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Evaluation
+ *
+ * @ORM\Table(name="evaluation", indexes={@ORM\Index(name="id_ensemble", columns={"id_ensemble"})})
+ * @ORM\Entity
+ */
+class Evaluation
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="bigint", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id_ensemble", type="bigint", nullable=false)
+     */
+    private $idEnsemble;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="note", type="integer", nullable=true)
+     */
+    private $note;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="total_point", type="bigint", nullable=false)
+     */
+    private $totalPoint;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="nb_vote", type="bigint", nullable=false)
+     */
+    private $nbVote;
+
+
+}
+
